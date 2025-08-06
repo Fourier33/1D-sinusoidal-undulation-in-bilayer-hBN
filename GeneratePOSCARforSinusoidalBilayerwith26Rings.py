@@ -1,5 +1,5 @@
 # Last modified by Xingfu Li @Rice, Aug.2025
-# needs flat bilayer abs-POSCAR with 26 Rings
+# needs flat bilayer POSCAR in Cartesian coordinates with 26 Rings
 # then calculate shear between two layers
 
 from sympy import *
@@ -90,25 +90,6 @@ xd_t_n = lambdify(x, xd_t)
 xd_t_n_v = xd_t_n(x_t)
 zd_t_n = lambdify(x, zd_t)
 zd_t_n_v = zd_t_n(x_t)
-
-# #get x and z coordinates of the other layer
-# g_n=lambdify(x,g)
-# x_v=np.zeros(53)
-# for i in range(52):
-#     c_upper=66
-#     c_lower=x_v[i]
-#     eps=1
-#     while eps>0.00001:
-#         c_tri=(c_upper+c_lower)/2
-#         I3=quad(g_n,x_v[i],c_tri)
-#         eps=abs(I3[0]-1.256199910090385)
-#         if I3[0]>1.256199910090385:
-#             c_upper=c_tri
-#         else:
-#             c_lower=c_tri
-#     x_v[i+1]=c_tri
-# z_n=lambdify(x,z2)
-# z_n_v=z_n(x_v)
 
 # ***generate POSCAR***#
 f = open("bilayer flat supercell.vasp", "r")
